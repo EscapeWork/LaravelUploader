@@ -1,0 +1,19 @@
+{
+    "name": "escapework/laravel-uploader",
+    "description": "Easy file upload for Laravel",
+    "keywords": ["framework", "laravel", "uploader"],
+    "license": "MIT",
+    "type": "library",
+
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "EscapeWork\\LaravelUploader\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "stable"
+    }
+}
