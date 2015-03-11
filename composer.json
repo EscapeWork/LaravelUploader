@@ -6,9 +6,6 @@
     "type": "library",
 
     "autoload": {
-        "classmap": [
-            "database"
-        ],
         "psr-4": {
             "EscapeWork\\LaravelUploader\\": "src/"
         }
