@@ -1,8 +1,8 @@
-<?php namespace EscapeWork\Manager\Medias\Commands;
+<?php namespace EscapeWork\LaravelUploader\Commands;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Contracts\Bus\SelfHandling;
-use EscapeWork\LaravelUploader\UploadCollection;
+use EscapeWork\LaravelUploader\Collections\UploadCollection;
 
 class NormalizeCommand extends Command implements SelfHandling {
     

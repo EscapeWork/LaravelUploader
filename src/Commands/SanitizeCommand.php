@@ -1,10 +1,10 @@
-<?php namespace EscapeWork\Manager\Medias\Commands;
+<?php namespace EscapeWork\LaravelUploader\Commands;
 
-use EscapeWork\Manager\Medias\Commands\Command;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Support\Str;
 
-class SanitizeCommand extends Command implements SelfHandling {
+class SanitizeCommand extends Command implements SelfHandling
+{
 
     /**
      * Handle the command.

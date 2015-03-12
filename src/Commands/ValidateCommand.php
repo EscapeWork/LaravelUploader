@@ -1,9 +1,9 @@
-<?php namespace EscapeWork\Manager\Medias\Commands;
+<?php namespace EscapeWork\LaravelUploader\Commands;
 
-use EscapeWork\Manager\Medias\Commands\Command;
 use Illuminate\Contracts\Bus\SelfHandling;
 
-class ValidateCommand extends Command implements SelfHandling {
+class ValidateCommand extends Command implements SelfHandling
+{
 
     /**
      * Handle the command.

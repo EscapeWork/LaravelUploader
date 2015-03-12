@@ -1,11 +1,10 @@
-<?php namespace EscapeWork\Manager\Medias\Commands;
+<?php namespace EscapeWork\LaravelUploader\Commands;
 
 use Illuminate\Contracts\Bus\SelfHandling;
-use EscapeWork\Manager\Medias\Exceptions\MediableException;
-use EscapeWork\Manager\Medias\Exceptions\MediaSettingsException;
-use EscapeWork\Manager\Medias\Collections\UploadCollection;
+use EscapeWork\LaravelUploader\Collections\UploadCollection;
 
-class UploadCommand extends Command implements SelfHandling {
+class UploadCommand extends Command implements SelfHandling
+{
 
     public $dir;
     private $files;

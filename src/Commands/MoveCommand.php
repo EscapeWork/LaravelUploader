@@ -3,7 +3,8 @@
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Contracts\Bus\SelfHandling;
 
-class MoveCommand extends Command implements SelfHandling {
+class MoveCommand extends Command implements SelfHandling
+{
 
     /**
      * Handle the command.
