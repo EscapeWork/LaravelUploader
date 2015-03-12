@@ -1,9 +1,9 @@
-<?php namespace EscapeWork\LaravelUploader\Services;
+<?php namespace EscapeWork\LaravelUploader;
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Contracts\Bus\Dispatcher;
-use EscapeWork\Manager\Medias\Commands\UploadCommand;
-use EscapeWork\Manager\Medias\Exceptions\MediaSettingsException;
+use EscapeWork\LaravelUploader\UploadCommand;
+use EscapeWork\LaravelUploader\Exceptions\UploadSettingsException;
 
 class Upload {
 
@@ -27,7 +27,7 @@ class Upload {
 
     public function start($files)
     {
-        if (! $this->dir) {
+        if (empty($this->dir)) {
             throw new UploadSettingsException;
         }
 
