@@ -32,11 +32,7 @@ class NormalizeCommand extends Command implements SelfHandling {
 
     private function parseFilesIntoArray($files)
     {
-        if ($files instanceof UploadedFile) {
-            $files = [$files];
-        }
-
-        return $files;
+        return $files instanceof UploadedFile ? [$files] : $files;
     }
 
     private function normalizeFiles(array $files)
@@ -44,7 +40,7 @@ class NormalizeCommand extends Command implements SelfHandling {
         foreach ($files as $file) {
             $this->collection->push([
                 'name' => $file->getClientOriginalName(),
-                'file' => $file
+                'file' => $file,
             ]);
         }
     }
