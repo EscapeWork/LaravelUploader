@@ -17,10 +17,7 @@ class MoveCommand extends Command implements SelfHandling
         $command->files()->transform(function ($item) use ($command) {
             $item['file']->move($command->dir, $item['name']);
 
-            return [
-                'name' => $item['name'],
-                'file' => new UploadedFile($command->dir . '/' . $item['name'], $item['name']),
-            ];
+            return $item['name'];
         });
 
         return $next($command);

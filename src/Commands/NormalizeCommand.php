@@ -4,8 +4,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Contracts\Bus\SelfHandling;
 use EscapeWork\LaravelUploader\Collections\UploadCollection;
 
-class NormalizeCommand extends Command implements SelfHandling {
-    
+class NormalizeCommand extends Command implements SelfHandling
+{
+
     private $collection;
 
     public function __construct(UploadCollection $collection)
@@ -37,9 +38,12 @@ class NormalizeCommand extends Command implements SelfHandling {
 
     private function normalizeFiles(array $files)
     {
+        $sanitize = app('EscapeWork\LaravelUploader\Services\SanitizeFilenameService');
+
         foreach ($files as $file) {
+            $filename = $sanitize->execute($file->getClientOriginalName());
             $this->collection->push([
-                'name' => $file->getClientOriginalName(),
+                'name' => $filename,
                 'file' => $file,
             ]);
         }

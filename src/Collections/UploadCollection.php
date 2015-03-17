@@ -7,6 +7,8 @@ class UploadCollection extends Collection
 
     public function __toString()
     {
-        return $this->first()['name'];
+        if (isset($this->first()['name'])) return $this->first()['name'];
+
+        return $this->first();
     }
 }

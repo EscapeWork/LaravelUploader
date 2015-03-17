@@ -14,17 +14,10 @@ class ValidateCommand extends Command implements SelfHandling
     public function handle($command, $next)
     {
         $command->files()->transform(function ($item) use ($command) {
-            $count = $separator = null;
-            $filename = $item['name'];
-
-            while (is_file($command->dir . '/' . $count . $separator . $filename)) {
-                $separator = '-';
-                $count++;
-            }
-            $filename = $count . $separator . $filename;
+            $validateService = app('EscapeWork\LaravelUploader\Services\ValidateFilenameService');
 
             return [
-                'name' => $filename,
+                'name' => $validateService->execute($command->dir, $item['name']),
                 'file' => $item['file'],
             ];
         });

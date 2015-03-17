@@ -32,7 +32,6 @@ class Upload
 
         $this->dispatcher->pipeThrough([
             'EscapeWork\LaravelUploader\Commands\NormalizeCommand',
-            'EscapeWork\LaravelUploader\Commands\SanitizeCommand',
             'EscapeWork\LaravelUploader\Commands\ValidateCommand',
             'EscapeWork\LaravelUploader\Commands\MoveCommand',
         ]);
