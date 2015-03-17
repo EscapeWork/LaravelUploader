@@ -1,18 +1,25 @@
 <?php namespace EscapeWork\LaravelUploader\Services;
 
+use Illuminate\Filesystem\Filesystem;
+
 class ValidateFilenameService
 {
+    protected $filesystem;
+
+    public function __construct(Filesystem $filesystem)
+    {
+        $this->filesystem = $filesystem;
+    }
 
     public function execute($basepath, $filename)
     {
-        $filesystem = app('Illuminate\Filesystem\Filesystem');
-
         $path      = $basepath . '/' . $filename;
-        $extension = $filesystem->extension($filename);
+        $extension = $this->filesystem->extension($filename);
+
         $filename  = str_replace('.' . $extension, null, $filename);
 
         $count = 0;
-        while ($filesystem->exists($path)) {
+        while ($this->filesystem->exists($path)) {
             $count++;
             $path  = $basepath . '/' . $filename . '-' . $count . '.' . $extension;
         }
