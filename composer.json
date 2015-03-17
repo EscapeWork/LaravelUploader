@@ -10,6 +10,12 @@
             "EscapeWork\\LaravelUploader\\": "src/"
         }
     },
+
+    "require-dev": {
+        "illuminate/support": "~5.0",
+        "phpspec/phpspec": "~2.0"
+    },
+
     "config": {
         "preferred-install": "stable"
     }
