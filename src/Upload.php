@@ -4,7 +4,6 @@ use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Contracts\Bus\Dispatcher;
 use EscapeWork\LaravelUploader\Commands\UploadCommand;
 use EscapeWork\LaravelUploader\Exceptions\UploadSettingsException;
-use EscapeWork\LaravelUploader\Repositories\ConfigRepository;
 
 class Upload
 {
@@ -14,10 +13,10 @@ class Upload
     private $dispatcher;
     private $dir;
 
-    public function __construct(Dispatcher $dispatcher, ConfigRepository $config)
+    public function __construct(Dispatcher $dispatcher)
     {
         $this->dispatcher = $dispatcher;
-        $this->dir        = $config->dir;
+        $this->dir = './storage/app/upload';
     }
 
     public function to($dir)

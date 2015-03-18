@@ -6,14 +6,12 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 use Illuminate\Contracts\Bus\Dispatcher;
-use EscapeWork\LaravelUploader\Repositories\ConfigRepository;
 
 class UploadSpec extends ObjectBehavior
 {
-    function let(Dispatcher $dispatcher, ConfigRepository $config)
+    function let(Dispatcher $dispatcher)
     {
-        $config->dir = '';
-        $this->beConstructedWith($dispatcher, $config);
+        $this->beConstructedWith($dispatcher);
     }
 
     function it_is_initializable()
@@ -29,7 +27,9 @@ class UploadSpec extends ObjectBehavior
 
     function it_should_throw_exception_when_dir_is_null()
     {
-        $this->shouldThrow('EscapeWork\LaravelUploader\Exceptions\UploadSettingsException')->during('execute', ['foo']);
+        $this->to(null);
+        $this->shouldThrow('EscapeWork\LaravelUploader\Exceptions\UploadSettingsException')
+              ->during('execute', ['foo']);
     }
 
 }
