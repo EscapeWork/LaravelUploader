@@ -2,7 +2,8 @@
 
 use Exception;
 
-class UploadSettingsException extends Exception {
+class UploadSettingsException extends Exception
+{
 
     public function __construct($message = null)
     {

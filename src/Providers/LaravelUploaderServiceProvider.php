@@ -26,6 +26,7 @@ class LaravelUploaderServiceProvider extends ServiceProvider
             $root . '/config/' . $configFile => config_path($configFile),
         ]);
 
+        $this->loadConfig();
         $this->loadValidators();
     }
 
@@ -53,6 +54,19 @@ class LaravelUploaderServiceProvider extends ServiceProvider
             'mime_type_array',
             'EscapeWork\LaravelUploader\Validators\MimeTypeArrayValidator@validate'
         );
+    }
+
+
+    /**
+     * Setting config repository from config file
+     * @return void
+     */
+    protected function loadConfig()
+    {
+        $this->app->bind('EscapeWork\LaravelUploader\Repositories\ConfigRepository', function () {
+            new \EscapeWork\LaravelUploader\Repositories\ConfigRepository(config('laravel-uploader'));
+        });
+
     }
 
 

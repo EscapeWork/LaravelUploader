@@ -2,3 +2,4 @@ suites:
     uploader_suite:
         namespace: EscapeWork\LaravelUploader
         psr4_prefix: EscapeWork\LaravelUploader
+        spec_path: tests
