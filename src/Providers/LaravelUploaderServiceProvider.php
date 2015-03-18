@@ -44,7 +44,5 @@ class LaravelUploaderServiceProvider extends ServiceProvider
         );
     }
 
-    }
-
 
 }
