@@ -19,7 +19,9 @@ class ValidateFilenameService
         $filename  = str_replace('.' . $extension, null, $filename);
 
         $count = 0;
+
         while ($this->filesystem->exists($path)) {
+            echo $path;
             $count++;
             $path  = $basepath . '/' . $filename . '-' . $count . '.' . $extension;
         }
