@@ -16,11 +16,11 @@ class MoveBulkFilesCommand extends Command implements SelfHandling
      *
      * @return void
      */
-    public function __construct($originDir, $targetDir, array $files)
+    public function __construct($originDir, $targetDir, $files)
     {
         $this->originDir = $originDir;
         $this->targetDir = $targetDir;
-        $this->files     = $files;
+        $this->files     = !is_array($files) ? (array) $files : $files;
     }
 
     /**
