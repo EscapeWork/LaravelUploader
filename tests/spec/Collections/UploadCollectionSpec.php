@@ -14,13 +14,13 @@ class UploadCollectionSpec extends ObjectBehavior
 
     function it_should_return_first_name_item()
     {
-        $this->beConstructedWith(['name' => 'foo']);
+        $this->beConstructedWith([['name' => 'foo'], ['name' => 'bar']]);
         $this->__toString()->shouldReturn('foo');
     }
 
     function it_should_return_first_item_when_name_doesnt_exist()
     {
-        $this->beConstructedWith(['foo']);
+        $this->beConstructedWith(['foo', 'bar']);
         $this->__toString()->shouldReturn('foo');
     }
 }
