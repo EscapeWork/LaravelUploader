@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelUploader\Exceptions;
+<?php
+
+namespace EscapeWork\LaravelUploader\Exceptions;
 
 use Exception;
 

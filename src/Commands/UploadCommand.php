@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelUploader\Commands;
+<?php
+
+namespace EscapeWork\LaravelUploader\Commands;
 
 use Illuminate\Contracts\Bus\SelfHandling;
 use EscapeWork\LaravelUploader\Collections\UploadCollection;

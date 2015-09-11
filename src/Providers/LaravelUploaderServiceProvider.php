@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelUploader\Providers;
+<?php
+
+namespace EscapeWork\LaravelUploader\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -29,7 +31,7 @@ class LaravelUploaderServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // 
+        //
     }
 
     /**

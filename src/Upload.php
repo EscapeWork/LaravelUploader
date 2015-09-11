@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelUploader;
+<?php
+
+namespace EscapeWork\LaravelUploader;
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Contracts\Bus\Dispatcher;

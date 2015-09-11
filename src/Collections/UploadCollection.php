@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelUploader\Collections;
+<?php
+
+namespace EscapeWork\LaravelUploader\Collections;
 
 use Illuminate\Support\Collection;
 

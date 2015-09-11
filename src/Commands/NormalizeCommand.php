@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelUploader\Commands;
+<?php
+
+namespace EscapeWork\LaravelUploader\Commands;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Contracts\Bus\SelfHandling;

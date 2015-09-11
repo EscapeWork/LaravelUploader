@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelUploader\Services;
+<?php
+
+namespace EscapeWork\LaravelUploader\Services;
 
 use Illuminate\Support\Str;
 

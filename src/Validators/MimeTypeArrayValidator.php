@@ -1,4 +1,6 @@
-<?php namespace EscapeWork\LaravelUploader\Validators;
+<?php
+
+namespace EscapeWork\LaravelUploader\Validators;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
@@ -13,6 +15,10 @@ class MimeTypeArrayValidator
         if (! is_array($array)) return false;
 
         foreach ($array as $value) {
+            if (! $value) {
+                continue;
+            }
+
             if (! $this->validateMimes($attribute, $value, $parameters)) {
                 return false;
             }
