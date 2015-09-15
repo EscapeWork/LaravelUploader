@@ -8,21 +8,24 @@ use Symfony\Component\HttpFoundation\File\File;
 class MimeTypeArrayValidator
 {
 
-    public function validate($attribute, $array, $parameters)
+    public function validate($attribute, $files, $parameters)
     {
         $parameters = count($parameters) === 0 ? ['jpg', 'jpeg', 'png'] : $parameters;
 
-        if (! is_array($array)) return false;
+        if (! is_array($files)) {
+            return false;
+        }
 
-        foreach ($array as $value) {
-            if (! $value) {
-                continue;
-            }
+        if (count($files) === 0) {
+            return true;
+        }
 
-            if (! $this->validateMimes($attribute, $value, $parameters)) {
+        foreach ($files as $file) {
+            if (! $this->validateMimes($attribute, $file, $parameters)) {
                 return false;
             }
         }
+
         return true;
     }
 
@@ -49,8 +52,7 @@ class MimeTypeArrayValidator
      */
     protected function validateMimes($attribute, $value, $parameters)
     {
-        if ( ! $this->isAValidFileInstance($value))
-        {
+        if (! $this->isAValidFileInstance($value)) {
             return false;
         }
 
