@@ -16,7 +16,7 @@ class MimeTypeArrayValidator
             return false;
         }
 
-        if (count($files) === 0) {
+        if (count($files) === 0 || is_null($files[0])) {
             return true;
         }
 
