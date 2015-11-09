@@ -6,7 +6,16 @@ use Illuminate\Filesystem\Filesystem;
 
 class ValidateFilenameService
 {
+
+    /**
+     * @var Illuminate\Filesystem\Filesystem
+     */
     protected $filesystem;
+
+    /**
+     * @var array
+     */
+    protected static $names = [];
 
     public function __construct(Filesystem $filesystem)
     {
@@ -17,19 +26,21 @@ class ValidateFilenameService
     {
         $path      = $basepath . '/' . $filename;
         $extension = $this->filesystem->extension($filename);
-
         $filename  = str_replace('.' . $extension, null, $filename);
+        $count     = 0;
 
-        $count = 0;
-
-        while ($this->filesystem->exists($path)) {
+        while ($this->filesystem->exists($path) || in_array($path, static::$names)) {
             $count++;
-            $path  = $basepath . '/' . $filename . '-' . $count . '.' . $extension;
+
+            $path = $basepath . '/' . $filename . '-' . $count . '.' . $extension;
         }
 
-        if ($count === 0) return $filename . '.' . $extension;
+        static::$names[] = $path;
+
+        if ($count === 0) {
+            return $filename . '.' . $extension;
+        }
 
         return $filename . '-' . $count . '.' . $extension;
     }
-
 }
