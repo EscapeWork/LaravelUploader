@@ -1,12 +1,11 @@
 <?php
 
-namespace EscapeWork\LaravelUploader\Commands;
+namespace EscapeWork\LaravelUploader\Jobs;
 
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Filesystem\Filesystem;
 use EscapeWork\LaravelUploader\Services\ValidateFilenameService;
 
-class MoveBulkFilesCommand extends Command implements SelfHandling
+class MoveBulkFilesJob extends Job
 {
 
     protected $originDir;

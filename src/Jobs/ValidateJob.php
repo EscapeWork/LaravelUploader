@@ -1,10 +1,8 @@
 <?php
 
-namespace EscapeWork\LaravelUploader\Commands;
+namespace EscapeWork\LaravelUploader\Jobs;
 
-use Illuminate\Contracts\Bus\SelfHandling;
-
-class ValidateCommand extends Command implements SelfHandling
+class ValidateJob extends Job
 {
 
     /**

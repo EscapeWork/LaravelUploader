@@ -2,17 +2,24 @@
 
 namespace EscapeWork\LaravelUploader;
 
-use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Foundation\Bus\DispatchesJob;
 use Illuminate\Contracts\Bus\Dispatcher;
-use EscapeWork\LaravelUploader\Commands\UploadCommand;
+use EscapeWork\LaravelUploader\Jobs\UploadJob;
 use EscapeWork\LaravelUploader\Exceptions\UploadSettingsException;
 
 class Upload
 {
 
-    use DispatchesCommands;
+    /**
+     * @trait Illuminate\Foundation\Bus\DispatchesJob
+     */
+    use DispatchesJob;
 
+    /**
+     * @var Illuminate\Contracts\Bus\Dispatcher
+     */
     private $dispatcher;
+
     private $dir;
 
     public function __construct(Dispatcher $dispatcher)
@@ -33,12 +40,12 @@ class Upload
         if (empty($this->dir)) throw new UploadSettingsException;
 
         $this->dispatcher->pipeThrough([
-            'EscapeWork\LaravelUploader\Commands\NormalizeCommand',
-            'EscapeWork\LaravelUploader\Commands\ValidateCommand',
-            'EscapeWork\LaravelUploader\Commands\MoveCommand',
+            'EscapeWork\LaravelUploader\Jobs\NormalizeJob',
+            'EscapeWork\LaravelUploader\Jobs\ValidateJob',
+            'EscapeWork\LaravelUploader\Jobs\MoveJob',
         ]);
 
-        $dispatched = $this->dispatch(new UploadCommand($files, $this->dir));
+        $dispatched = $this->dispatch(new UploadJob($files, $this->dir));
         $this->dispatcher->pipeThrough([]);
 
         return $dispatched;
