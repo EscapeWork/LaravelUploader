@@ -1,6 +1,6 @@
 <?php
 
-namespace EscapeWork\LaravelUploader\Commands;
+namespace EscapeWork\LaravelUploader\Jobs;
 
 use EscapeWork\LaravelUploader\Collections\UploadCollection;
 

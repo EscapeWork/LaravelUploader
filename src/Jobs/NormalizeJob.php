@@ -5,7 +5,7 @@ namespace EscapeWork\LaravelUploader\Jobs;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use EscapeWork\LaravelUploader\Collections\UploadCollection;
 
-class NormalizeCommand extends Job
+class NormalizeJob extends Job
 {
 
     private $collection;
