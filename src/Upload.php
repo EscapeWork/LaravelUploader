@@ -2,7 +2,7 @@
 
 namespace EscapeWork\LaravelUploader;
 
-use Illuminate\Foundation\Bus\DispatchesJob;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Contracts\Bus\Dispatcher;
 use EscapeWork\LaravelUploader\Jobs\UploadJob;
 use EscapeWork\LaravelUploader\Exceptions\UploadSettingsException;
@@ -11,9 +11,9 @@ class Upload
 {
 
     /**
-     * @trait Illuminate\Foundation\Bus\DispatchesJob
+     * @trait Illuminate\Foundation\Bus\DispatchesJobs
      */
-    use DispatchesJob;
+    use DispatchesJobs;
 
     /**
      * @var Illuminate\Contracts\Bus\Dispatcher
