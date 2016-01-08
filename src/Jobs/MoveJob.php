@@ -3,9 +3,8 @@
 namespace EscapeWork\LaravelUploader\Jobs;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Illuminate\Contracts\Bus\SelfHandling;
 
-class MoveCommand extends Job
+class MoveJob extends Job
 {
 
     /**
