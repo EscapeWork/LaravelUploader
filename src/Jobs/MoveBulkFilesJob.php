@@ -3,9 +3,10 @@
 namespace EscapeWork\LaravelUploader\Jobs;
 
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Contracts\Bus\SelfHandling;
 use EscapeWork\LaravelUploader\Services\ValidateFilenameService;
 
-class MoveBulkFilesJob extends Job
+class MoveBulkFilesJob extends Job implements SelfHandling
 {
 
     protected $originDir;

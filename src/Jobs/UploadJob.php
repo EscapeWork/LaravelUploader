@@ -3,8 +3,9 @@
 namespace EscapeWork\LaravelUploader\Jobs;
 
 use EscapeWork\LaravelUploader\Collections\UploadCollection;
+use Illuminate\Contracts\Bus\SelfHandling;
 
-class UploadJob extends Job
+class UploadJob extends Job implements SelfHandling
 {
 
     public $dir;
